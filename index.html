@@ -93,6 +93,65 @@
             cursor: pointer;
         }
 
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-3);
+    text-align: center;
+}
+.facility-item {
+    padding: var(--sp-3) var(--sp-2);
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+    transition: transform 0.35s var(--ease);
+}
+.facility-item:hover {
+    transform: translateY(-4px);
+}
+.facility-icon {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.facility-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.facility-item h4 {
+    font-family: var(--f-accent);
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+.facility-item p {
+    font-size: var(--fs-xs);
+    color: var(--text3);
+}
+/* Responsive */
+@media (max-width: 860px) {
+    .facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 500px) {
+    .facilities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+        
         body::after {
             content: "";
             position: fixed;
@@ -910,74 +969,122 @@
             </div>
         </section>
 
-        <section class="section section--alt" id="facilitati">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="eyebrow"><span class="line"></span>Ce oferim</span>
-                    <h2>Facilități</h2>
-                    <p>Micul dejun inclus, Wi-Fi rapid, parcare privată și multe alte atenții care fac diferența.</p>
+       <section class="section section--alt" id="facilitati">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow"><span class="line"></span>Ce oferim</span>
+            <h2>Facilități</h2>
+            <p>Micul dejun inclus, Wi-Fi rapid, parcare privată și multe alte atenții care fac diferența.</p>
+        </div>
+        <div class="facilities-grid reveal">
+            <!-- Mic dejun artizanal -->
+            <div class="facility-item">
+                <div class="facility-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M5 12l2-2m-2 2l2 2"/>
+                        <circle cx="12" cy="8" r="3"/>
+                        <path d="M9 8c0-1.7 1.3-3 3-3s3 1.3 3 3"/>
+                        <path d="M8 19c0-2.2 1.8-4 4-4s4 1.8 4 4"/>
+                    </svg>
                 </div>
-                <div class="facilities-grid reveal">
-                    <div class="facility-item">
-                        <div class="facility-icon">
-                            <svg viewBox="0 0 24 24"><path d="M5 12h14M5 12l2-2m-2 2l2 2"/><circle cx="12" cy="8" r="3"/><path d="M9 8c0-1.7 1.3-3 3-3s3 1.3 3 3"/><path d="M8 19c0-2.2 1.8-4 4-4s4 1.8 4 4"/></svg>
-                        </div>
-                        <h4>Mic dejun artizanal</h4>
-                        <p>Produse locale, pâine de casă, cafea de specialitate</p>
-                    </div>
-                    <div class="facility-item">
-                        <div class="facility-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg>
-                        </div>
-                        <h4>Grădină & terasă</h4>
-                        <p>Șezlonguri, hamace, foișor și grătar</p>
-                    </div>
-                    <div class="facility-item">
-                        <div class="facility-icon">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2"/><circle cx="6" cy="10" r="1.5"/><circle cx="18" cy="10" r="1.5"/><path d="M7 16h10"/></svg>
-                        </div>
-                        <h4>Parcare privată</h4>
-                        <p>Parcare gratuită, supravegheată video</p>
-                    </div>
-                    <div class="facility-item">
-                        <div class="facility-icon">
-                            <svg viewBox="0 0 24 24"><path d="M5 12.5h14M12 5v14"/><circle cx="7" cy="7" r="1.5"/><circle cx="17" cy="17" r="1.5"/></svg>
-                        </div>
-                        <h4>Wi-Fi rapid</h4>
-                        <p>Internet de mare viteză în toată pensiunea</p>
-                    </div>
-                    <div class="facility-item">
-                        <div class="facility-icon">
-                            <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 18H3"/><line x1="7" y1="18" x2="7" y2="20"/><line x1="17" y1="18" x2="17" y2="20"/></svg>
-                        </div>
-                        <h4>Saună & relaxare</h4>
-                        <p>Saună uscată și zonă de lounge la interior</p>
-                    </div>
-                    <div class="facility-item">
-                        <div class="facility-icon">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M12 13v6"/><line x1="7" y1="17" x2="17" y2="17"/><circle cx="7" cy="6" r="1.5"/><circle cx="17" cy="6" r="1.5"/></svg>
-                        </div>
-                        <h4>Biciclete gratis</h4>
-                        <p>Explorează împrejurimile pe două roți</p>
-                    </div>
-                    <div class="facility-item">
-                        <div class="facility-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 4c-3 0-5 2-5 5v6c0 1.7 1.3 3 3 3s3-1.3 3-3v-1h1c1.7 0 3-1.3 3-3s-1.3-3-3-3h-2"/><circle cx="14" cy="14" r="1.5"/></svg>
-                        </div>
-                        <h4>Pet friendly</h4>
-                        <p>Acceptăm animale de companie mici, cu bucurie</p>
-                    </div>
-                    <div class="facility-item">
-                        <div class="facility-icon">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-                        </div>
-                        <h4>Recepție 24/7</h4>
-                        <p>Check-in flexibil, personal mereu disponibil</p>
-                    </div>
-                </div>
+                <h4>Mic dejun artizanal</h4>
+                <p>Produse locale, pâine de casă, cafea de specialitate</p>
             </div>
-        </section>
 
+            <!-- Grădină & terasă -->
+            <div class="facility-item">
+                <div class="facility-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M2 12h20"/>
+                        <circle cx="12" cy="12" r="4"/>
+                    </svg>
+                </div>
+                <h4>Grădină & terasă</h4>
+                <p>Șezlonguri, hamace, foișor și grătar</p>
+            </div>
+
+            <!-- Parcare privată -->
+            <div class="facility-item">
+                <div class="facility-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="6" width="20" height="13" rx="2"/>
+                        <circle cx="6" cy="10" r="1.5"/>
+                        <circle cx="18" cy="10" r="1.5"/>
+                        <path d="M7 16h10"/>
+                    </svg>
+                </div>
+                <h4>Parcare privată</h4>
+                <p>Parcare gratuită, supravegheată video</p>
+            </div>
+
+            <!-- Wi-Fi rapid -->
+            <div class="facility-item">
+                <div class="facility-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12.5h14M12 5v14"/>
+                        <circle cx="7" cy="7" r="1.5"/>
+                        <circle cx="17" cy="17" r="1.5"/>
+                    </svg>
+                </div>
+                <h4>Wi-Fi rapid</h4>
+                <p>Internet de mare viteză în toată pensiunea</p>
+            </div>
+
+            <!-- Saună & relaxare -->
+            <div class="facility-item">
+                <div class="facility-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                        <path d="M21 18H3"/>
+                        <line x1="7" y1="18" x2="7" y2="20"/>
+                        <line x1="17" y1="18" x2="17" y2="20"/>
+                    </svg>
+                </div>
+                <h4>Saună & relaxare</h4>
+                <p>Saună uscată și zonă de lounge la interior</p>
+            </div>
+
+            <!-- Biciclete gratis -->
+            <div class="facility-item">
+                <div class="facility-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="5"/>
+                        <path d="M12 13v6"/>
+                        <line x1="7" y1="17" x2="17" y2="17"/>
+                        <circle cx="7" cy="6" r="1.5"/>
+                        <circle cx="17" cy="6" r="1.5"/>
+                    </svg>
+                </div>
+                <h4>Biciclete gratis</h4>
+                <p>Explorează împrejurimile pe două roți</p>
+            </div>
+
+            <!-- Pet friendly -->
+            <div class="facility-item">
+                <div class="facility-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 4c-3 0-5 2-5 5v6c0 1.7 1.3 3 3 3s3-1.3 3-3v-1h1c1.7 0 3-1.3 3-3s-1.3-3-3-3h-2"/>
+                        <circle cx="14" cy="14" r="1.5"/>
+                    </svg>
+                </div>
+                <h4>Pet friendly</h4>
+                <p>Acceptăm animale de companie mici, cu bucurie</p>
+            </div>
+
+            <!-- Recepție 24/7 -->
+            <div class="facility-item">
+                <div class="facility-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="9"/>
+                        <polyline points="12 7 12 12 15 15"/>
+                    </svg>
+                </div>
+                <h4>Recepție 24/7</h4>
+                <p>Check-in flexibil, personal mereu disponibil</p>
+            </div>
+        </div>
+    </div>
+</section>
         <section class="section section--alt" id="locatie">
             <div class="container">
                 <div class="location-grid">
