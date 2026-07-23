@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Boema — Pensiune boutique, Transilvania</title>
+    <meta name="description" content="Casa Boema — o pensiune de poveste în inima Transilvaniei. Camere rafinate, natură și liniște.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F5EFE6'/%3E%3Cpath d='M16 4 L28 26 L4 26 Z' fill='none' stroke='%23C87A4F' stroke-width='2'/%3E%3Ccircle cx='16' cy='20' r='3' fill='%23C87A4F'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Inter:wght@400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FCFAF5;
+            --bg2: #F5EFE6;
+            --surface: #FFFFFF;
+            --accent: #C87A4F;
+            --accent-hover: #D98B5F;
+            --accent-soft: rgba(200, 122, 79, 0.08);
+            --accent-glow: rgba(200, 122, 79, 0.25);
+            --text: #1E1E1E;
+            --text2: #555555;
+            --text3: #8C8C8C;
+            --border: rgba(0, 0, 0, 0.07);
+            --border2: rgba(0, 0, 0, 0.14);
+            --f-heading: 'Playfair Display', Georgia, serif;
+            --f-body: 'Inter', -apple-system, sans-serif;
+            --f-accent: 'DM Sans', sans-serif;
+            --fs-hero: clamp(3.6rem, 9vw, 7.2rem);
+            --fs-xxl: clamp(2.4rem, 5.5vw, 4rem);
+            --fs-xl: clamp(1.7rem, 3.5vw, 2.4rem);
+            --fs-lg: 1.2rem;
+            --fs-md: 1rem;
+            --fs-base: 0.95rem;
+            --fs-sm: 0.8rem;
+            --fs-xs: 0.7rem;
+            --sp-1: 0.6rem;
+            --sp-2: 1.2rem;
+            --sp-3: 2rem;
+            --sp-4: 3.2rem;
+            --sp-5: 5rem;
+            --sp-6: 8rem;
+            --radius: 10px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --ease: cubic-bezier(0.22, 0.7, 0.24, 1);
+            --maxw: 1280px;
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+            --shadow-elevated: 0 14px 40px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text2);
+            font-family: var(--f-body);
+            font-size: var(--fs-base);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        figure {
+            margin: 0;
+        }
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: auto;
+            background: var(--accent);
+            color: #fff;
+            padding: .75rem 1.25rem;
+            z-index: 2000;
+            font-family: var(--f-accent);
+            font-size: var(--fs-xs);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            border-radius: 4px;
+        }
+        .skip-link:focus {
+            left: var(--sp-2);
+            top: var(--sp-2);
+        }
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 3px;
+        }
+
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 var(--sp-3);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--f-accent);
+            font-size: var(--fs-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .eyebrow .line {
+            width: 28px;
+            height: 1.2px;
+            background: var(--accent);
+            border-radius: 1px;
+        }
+        h1,
+        h2,
+        h3 {
+            font-family: var(--f-heading);
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            line-height: 1.12;
+        }
+        .section-head {
+            max-width: 600px;
+            margin-bottom: var(--sp-4);
+        }
+        .section-head h2 {
+            font-size: var(--fs-xxl);
+            margin-top: 0.4rem;
+        }
+        .section-head p {
+            margin-top: 1rem;
+            font-size: var(--fs-lg);
+            color: var(--text2);
+            max-width: 48ch;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 2rem;
+            font-family: var(--f-accent);
+            font-size: var(--fs-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            border-radius: 40px;
+            border: 1px solid transparent;
+            transition: all 0.4s var(--ease);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-solid {
+            background: var(--accent);
+            color: #fff;
+        }
+        .btn-solid:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px -10px rgba(200, 122, 79, 0.4);
+        }
+        .btn-outline {
+            border-color: var(--border2);
+            color: var(--text);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px -8px var(--accent-soft);
+        }
+        .btn-ghost {
+            padding: 0.6rem 1.2rem;
+            font-family: var(--f-accent);
+            font-size: var(--fs-xs);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-bottom: 1.5px solid transparent;
+            transition: border-color 0.35s;
+            border-radius: 0;
+        }
+        .btn-ghost:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 900;
+            padding: 1.3rem 0;
+            transition: padding 0.45s var(--ease), background 0.45s var(--ease), border-color 0.45s var(--ease), box-shadow 0.45s var(--ease);
+            border-bottom: 1px solid transparent;
+        }
+        .nav.is-scrolled {
+            padding: 0.8rem 0;
+            background: rgba(252, 250, 245, 0.85);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-color: var(--border);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+        }
+        .nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--f-heading);
+            font-weight: 700;
+            font-size: 1.45rem;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        .brand svg {
+            width: 32px;
+            height: 32px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-3);
+        }
+        .nav-links a:not(.btn) {
+            font-family: var(--f-accent);
+            font-size: var(--fs-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text2);
+            padding-bottom: 5px;
+            position: relative;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        .nav-links a:not(.btn):hover {
+            color: var(--text);
+        }
+        .nav-links a:not(.btn)::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.4s var(--ease);
+            border-radius: 2px;
+        }
+        .nav-links a:not(.btn):hover::after,
+        .nav-links a.is-active::after {
+            width: 100%;
+        }
+        .nav-links a.is-active {
+            color: var(--text);
+        }
+        .nav-links .btn {
+            margin-left: 0.4rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 0;
+            padding: 0.4rem;
+        }
+        .nav-toggle span,
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            content: "";
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: transform 0.35s var(--ease), opacity 0.35s var(--ease);
+            position: relative;
+            border-radius: 2px;
+        }
+        .nav-toggle span::before {
+            position: absolute;
+            top: -8px;
+        }
+        .nav-toggle span::after {
+            position: absolute;
+            top: 8px;
+        }
+        .nav.is-open .nav-toggle span {
+            background: transparent;
+        }
+        .nav.is-open .nav-toggle span::before {
+            transform: translateY(8px) rotate(45deg);
+            background: var(--accent);
+        }
+        .nav.is-open .nav-toggle span::after {
+            transform: translateY(-8px) rotate(-45deg);
+            background: var(--accent);
+        }
+
+        @media (max-width: 860px) {
+            .nav-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                inset: 0 0 0 auto;
+                width: min(80vw, 340px);
+                height: 100vh;
+                background: var(--bg);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: var(--sp-3);
+                padding: 0 var(--sp-4);
+                transform: translateX(100%);
+                transition: transform 0.5s var(--ease);
+                border-left: 1px solid var(--border);
+                box-shadow: -8px 0 30px rgba(0, 0, 0, 0.05);
+            }
+            .nav.is-open .nav-links {
+                transform: translateX(0);
+            }
+            .nav-links a:not(.btn) {
+                font-size: var(--fs-base);
+            }
+            .nav-links .btn {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8rem 0 5rem;
+            background: var(--bg);
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(1.05) saturate(0.95);
+            opacity: 0.55;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(252, 250, 245, 0.1) 0%, rgba(252, 250, 245, 0.7) 60%, rgba(252, 250, 245, 0.95) 100%);
+            z-index: 1;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            gap: var(--sp-4);
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-copy {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s var(--ease) 0.2s forwards;
+        }
+        .hero-copy .eyebrow {
+            margin-bottom: 1.2rem;
+        }
+        .hero-title {
+            font-size: var(--fs-hero);
+            line-height: 0.95;
+            color: var(--text);
+            margin: 0 0 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+        .hero-title span {
+            color: var(--accent);
+            font-style: italic;
+        }
+        .hero-sub {
+            font-size: var(--fs-lg);
+            max-width: 42ch;
+            color: var(--text2);
+            line-height: 1.6;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: var(--sp-3);
+            flex-wrap: wrap;
+        }
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: cupIn 1.2s var(--ease) 0.35s forwards;
+        }
+        .hero-visual img {
+            width: min(100%, 420px);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-elevated);
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @keyframes cupIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .hero-scroll {
+            position: absolute;
+            left: 50%;
+            bottom: 2rem;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--f-accent);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text3);
+            opacity: 0;
+            animation: fadeUp 0.9s var(--ease) 1.6s forwards;
+            z-index: 2;
+        }
+        .hero-scroll svg {
+            width: 16px;
+            height: 22px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(8px);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+            .hero-visual {
+                order: -1;
+                margin-bottom: 0.5rem;
+            }
+            .hero-visual img {
+                width: min(65%, 240px);
+            }
+            .hero-bg img {
+                opacity: 0.35;
+            }
+        }
+
+        .section {
+            padding: var(--sp-6) 0;
+            position: relative;
+        }
+        .section--alt {
+            background: var(--bg2);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-5);
+            align-items: center;
+        }
+        .about-copy p {
+            font-size: var(--fs-md);
+            color: var(--text2);
+            margin-bottom: 1.2rem;
+            max-width: 50ch;
+        }
+        .about-visual {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-elevated);
+            aspect-ratio: 5/4;
+        }
+        .about-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-visual .caption {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-family: var(--f-accent);
+            font-size: var(--fs-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text);
+        }
+        @media (max-width: 860px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-visual {
+                order: -1;
+            }
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sp-3);
+            margin-top: var(--sp-3);
+        }
+        .room-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+            border: 1px solid var(--border);
+        }
+        .room-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-elevated);
+        }
+        .room-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+        .room-card-body {
+            padding: var(--sp-2) var(--sp-2) var(--sp-3);
+        }
+        .room-card-body h3 {
+            font-size: var(--fs-xl);
+            margin-bottom: 0.3rem;
+        }
+        .room-card-body .room-price {
+            font-family: var(--f-accent);
+            font-size: var(--fs-sm);
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+        .room-card-body p {
+            font-size: var(--fs-sm);
+            color: var(--text3);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+        @media (max-width: 860px) {
+            .rooms-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 520px) {
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Facilities */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--sp-3);
+            text-align: center;
+        }
+        .facility-item {
+            padding: var(--sp-3) var(--sp-2);
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border);
+            transition: transform 0.35s var(--ease);
+        }
+        .facility-item:hover {
+            transform: translateY(-4px);
+        }
+        .facility-icon {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        .facility-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .facility-item h4 {
+            font-family: var(--f-accent);
+            font-size: var(--fs-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        .facility-item p {
+            font-size: var(--fs-xs);
+            color: var(--text3);
+        }
+        @media (max-width: 860px) {
+            .facilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 500px) {
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-5);
+            align-items: start;
+        }
+        .location-map {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--border);
+            aspect-ratio: 4/3;
+            min-height: 340px;
+        }
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(0.1) contrast(0.95);
+        }
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--sp-3);
+            margin-top: var(--sp-3);
+        }
+        .info-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .info-item .icon-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .info-item .icon-circle svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.8;
+        }
+        .info-item h4 {
+            font-family: var(--f-accent);
+            font-size: var(--fs-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text3);
+            margin: 0 0 0.2rem;
+            font-weight: 500;
+        }
+        .info-item p {
+            color: var(--text);
+            font-size: var(--fs-md);
+            font-weight: 500;
+        }
+        .info-item a {
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .info-item a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        .social-row {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: var(--sp-3);
+        }
+        .social-row a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s, transform 0.3s;
+            background: var(--surface);
+        }
+        .social-row a:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        .social-row svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text2);
+            fill: none;
+            stroke-width: 1.6;
+        }
+        @media (max-width: 860px) {
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer {
+            padding: var(--sp-4) 0 var(--sp-3);
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+        }
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer small {
+            font-family: var(--f-accent);
+            font-size: var(--fs-xs);
+            color: var(--text3);
+            letter-spacing: 0.05em;
+        }
+        .footer .brand {
+            font-size: 1.15rem;
+            opacity: 0.8;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+        }
+        .reveal.in-view {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+            .reveal,
+            .hero-copy,
+            .hero-visual,
+            .hero-scroll {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#continut">Sari la conținut</a>
+
+    <nav class="nav" id="nav">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <rect width="32" height="32" rx="8" fill="none" stroke="#C87A4F" stroke-width="2"/>
+                    <path d="M16 6 L26 24 L6 24 Z" fill="none" stroke="#C87A4F" stroke-width="1.8" stroke-linejoin="round"/>
+                    <circle cx="16" cy="19" r="3" fill="#C87A4F"/>
+                </svg>
+                Casa Boema
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="is-active">Acasă</a></li>
+                <li><a href="#despre">Povestea</a></li>
+                <li><a href="camere.html">Camere</a></li>
+                <li><a href="#facilitati">Facilități</a></li>
+                <li><a href="#locatie">Locație</a></li>
+                <li><a href="#locatie" class="btn btn-outline">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Deschide meniul" aria-expanded="false">
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="continut">
+        <header class="hero" id="acasa">
+            <div class="hero-bg">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&h=900&fit=crop&auto=format" alt="Pensiune în mijlocul naturii">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-copy">
+                    <span class="eyebrow"><span class="line"></span>Transilvania · Brașov</span>
+                    <h1 class="hero-title">Tradiție & <span>rafinament</span> la poalele dealului</h1>
+                    <p class="hero-sub">Casa Boema te așteaptă cu 7 camere primitoare, o grădină generoasă și o terasă cu vedere panoramică. Bucură-te de liniștea naturii, la doar 15 minute de centrul Brașovului.</p>
+                    <div class="hero-actions">
+                        <a href="camere.html" class="btn btn-solid">Descoperă camerele</a>
+                        <a href="#locatie" class="btn btn-outline">Cum ajungi</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="https://images.unsplash.com/photo-1598928506311-c55e97a1f1c2?w=500&h=700&fit=crop&auto=format" alt="Interior cameră pensiune">
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <svg viewBox="0 0 16 22" aria-hidden="true"><path d="M3 3 L8 10 L13 3" fill="none" stroke="#8C8C8C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Derulează
+            </div>
+        </header>
+
+        <section class="section" id="despre">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-copy reveal">
+                        <span class="eyebrow"><span class="line"></span>Povestea noastră</span>
+                        <h2 style="font-size:var(--fs-xxl);margin-top:0.5rem;">O casă cu suflet, transformată în pensiune</h2>
+                        <p style="margin-top:1.4rem;">Casa Boema a fost inițial o locuință săsească ridicată în 1892. Am restaurat-o cu grijă, păstrând grinzile originale și sobele de teracotă, și am adus un strop de design contemporan. Fiecare cameră spune o poveste, iar grădina noastră de lavandă este locul perfect pentru dimineți lente.</p>
+                        <p>Primim oaspeți din toate colțurile lumii de peste 8 ani, oferind o experiență autentică, într-un cadru intim și relaxat.</p>
+                        <a href="camere.html" class="btn btn-ghost" style="margin-top:0.8rem;">Vezi camerele →</a>
+                    </div>
+                    <div class="about-visual reveal">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&h=500&fit=crop&auto=format" alt="Grădina pensiunii">
+                        <span class="caption">Grădina de lavandă</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="facilitati">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow"><span class="line"></span>Ce oferim</span>
+                    <h2>Facilități</h2>
+                    <p>Micul dejun inclus, Wi-Fi rapid, parcare privată și multe alte atenții care fac diferența.</p>
+                </div>
+                <div class="facilities-grid reveal">
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M5 12l2-2m-2 2l2 2"/><circle cx="12" cy="8" r="3"/><path d="M9 8c0-1.7 1.3-3 3-3s3 1.3 3 3"/><path d="M8 19c0-2.2 1.8-4 4-4s4 1.8 4 4"/></svg>
+                        </div>
+                        <h4>Mic dejun artizanal</h4>
+                        <p>Produse locale, pâine de casă, cafea de specialitate</p>
+                    </div>
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg>
+                        </div>
+                        <h4>Grădină & terasă</h4>
+                        <p>Șezlonguri, hamace, foișor și grătar</p>
+                    </div>
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2"/><circle cx="6" cy="10" r="1.5"/><circle cx="18" cy="10" r="1.5"/><path d="M7 16h10"/></svg>
+                        </div>
+                        <h4>Parcare privată</h4>
+                        <p>Parcare gratuită, supravegheată video</p>
+                    </div>
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><path d="M5 12.5h14M12 5v14"/><circle cx="7" cy="7" r="1.5"/><circle cx="17" cy="17" r="1.5"/></svg>
+                        </div>
+                        <h4>Wi-Fi rapid</h4>
+                        <p>Internet de mare viteză în toată pensiunea</p>
+                    </div>
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 18H3"/><line x1="7" y1="18" x2="7" y2="20"/><line x1="17" y1="18" x2="17" y2="20"/></svg>
+                        </div>
+                        <h4>Saună & relaxare</h4>
+                        <p>Saună uscată și zonă de lounge la interior</p>
+                    </div>
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M12 13v6"/><line x1="7" y1="17" x2="17" y2="17"/><circle cx="7" cy="6" r="1.5"/><circle cx="17" cy="6" r="1.5"/></svg>
+                        </div>
+                        <h4>Biciclete gratis</h4>
+                        <p>Explorează împrejurimile pe două roți</p>
+                    </div>
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 4c-3 0-5 2-5 5v6c0 1.7 1.3 3 3 3s3-1.3 3-3v-1h1c1.7 0 3-1.3 3-3s-1.3-3-3-3h-2"/><circle cx="14" cy="14" r="1.5"/></svg>
+                        </div>
+                        <h4>Pet friendly</h4>
+                        <p>Acceptăm animale de companie mici, cu bucurie</p>
+                    </div>
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+                        </div>
+                        <h4>Recepție 24/7</h4>
+                        <p>Check-in flexibil, personal mereu disponibil</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="locatie">
+            <div class="container">
+                <div class="location-grid">
+                    <div class="reveal">
+                        <span class="eyebrow"><span class="line"></span>Contact & Locație</span>
+                        <h2 style="font-size:var(--fs-xxl);margin-top:0.5rem;">Te așteptăm cu drag</h2>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="icon-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-7.4-7-12a7 7 0 1 1 14 0c0 4.6-7 12-7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>
+                                </span>
+                                <div><h4>Adresă</h4><p>Strada Plopilor 14, Sat Săcele, Brașov</p></div>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+                                </span>
+                                <div><h4>Check-in / Check-out</h4><p>15:00 – 20:00 / 08:00 – 11:00</p></div>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+                                </span>
+                                <div><h4>Telefon & Email</h4><p><a href="tel:+40745123456">+40 745 123 456</a><br><a href="mailto:contact@casaboema.ro">contact@casaboema.ro</a></p></div>
+                            </div>
+                        </div>
+                        <div class="social-row">
+                            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1"/></svg></a>
+                            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9h2.5V5.5H14c-2.2 0-3.5 1.4-3.5 3.6V11H8v3h2.5v7h3v-7H16l.5-3h-3V9.3c0-.6.2-1 .5-1z"/></svg></a>
+                            <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12.3c0 5.3-4.3 9.6-9.6 9.6-1.7 0-3.3-.4-4.7-1.2L2 22l1.3-5.2c-.8-1.4-1.2-3-1.2-4.7 0-5.3 4.3-9.6 9.6-9.6 5.3 0 9.6 4.3 9.6 9.6z"/><path d="M17.3 15.2c-.3.8-1.2 1.4-2 1.5-1.2.2-2.5-.2-3.7-1-1-.7-1.9-1.6-2.6-2.6-.8-1.2-1.2-2.5-1-3.7.1-.8.7-1.7 1.5-2 .3-.1.6 0 .8.2l1.2 1.7c.2.3.1.7-.1 1-.2.2-.5.5-.6.7-.1.3 0 .7.2 1 .5.8 1.2 1.5 2 2 .5.3.7.3 1 .2.2-.1.5-.4.7-.6.3-.2.7-.3 1-.1l1.7 1.2c.2.2.3.5.1.8z"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="reveal">
+                        <div class="location-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.59858325811!2d25.5963!3d45.6579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b35b5c5c5c5c5d%3A0x5c5c5c5c5c5c5c5c!2sBra%C8%99ov!5e0!3m2!1sro!2sro!4v1685000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Locație Casa Boema"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="index.html" class="brand" style="font-size:1.1rem;">
+                <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
+                    <rect width="32" height="32" rx="8" fill="none" stroke="#C87A4F" stroke-width="2"/>
+                    <path d="M16 6 L26 24 L6 24 Z" fill="none" stroke="#C87A4F" stroke-width="1.8" stroke-linejoin="round"/>
+                    <circle cx="16" cy="19" r="3" fill="#C87A4F"/>
+                </svg>
+                Casa Boema
+            </a>
+            <small>© 2026 Casa Boema · Brașov. Prototip demonstrativ.</small>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            var nav = document.querySelector('.nav');
+            window.addEventListener('scroll', function() {
+                nav.classList.toggle('is-scrolled', window.scrollY > 40);
+            }, { passive: true });
+            var toggle = document.querySelector('.nav-toggle');
+            toggle.addEventListener('click', function() {
+                nav.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', nav.classList.contains('is-open'));
+            });
+            document.querySelectorAll('.nav-links a').forEach(function(l) {
+                l.addEventListener('click', function() { nav.classList.remove('is-open'); });
+            });
+            var sections = document.querySelectorAll('section[id], header[id]');
+            var links = document.querySelectorAll('.nav-links a[href^="#"]');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(e) {
+                    if (e.isIntersecting) {
+                        links.forEach(function(link) { link.classList.remove('is-active'); });
+                        var active = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
+                        if (active) active.classList.add('is-active');
+                    }
+                });
+            }, { rootMargin: '-30% 0px -60% 0px' });
+            sections.forEach(function(s) { observer.observe(s); });
+            document.querySelectorAll('.reveal').forEach(function(el) {
+                var io = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        el.classList.add('in-view');
+                        io.unobserve(el);
+                    }
+                }, { threshold: 0.1 });
+                io.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>
