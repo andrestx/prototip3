@@ -56,6 +56,8 @@
         }
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
         }
         body {
             margin: 0;
@@ -66,6 +68,8 @@
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
         }
         img {
             max-width: 100%;
@@ -93,65 +97,6 @@
             cursor: pointer;
         }
 
-.facilities-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--sp-3);
-    text-align: center;
-}
-.facility-item {
-    padding: var(--sp-3) var(--sp-2);
-    background: var(--surface);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--border);
-    transition: transform 0.35s var(--ease);
-}
-.facility-item:hover {
-    transform: translateY(-4px);
-}
-.facility-icon {
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
-}
-.facility-icon svg {
-    width: 36px;
-    height: 36px;
-    stroke: var(--accent);
-    fill: none;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-.facility-item h4 {
-    font-family: var(--f-accent);
-    font-size: var(--fs-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text);
-    margin-bottom: 0.3rem;
-    font-weight: 600;
-}
-.facility-item p {
-    font-size: var(--fs-xs);
-    color: var(--text3);
-}
-/* Responsive */
-@media (max-width: 860px) {
-    .facilities-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 500px) {
-    .facilities-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-
-        
         body::after {
             content: "";
             position: fixed;
@@ -368,6 +313,7 @@
             background: none;
             border: 0;
             padding: 0.4rem;
+            flex-shrink: 0;
         }
         .nav-toggle span,
         .nav-toggle span::before,
@@ -402,12 +348,20 @@
         }
 
         @media (max-width: 860px) {
+            /* padere mai mica pe mobil, ca sa nu impinga continutul */
+            .container {
+                padding: 0 1.1rem;
+            }
             .nav-toggle {
                 display: block;
             }
+            /* FIX: meniul off-canvas foloseste "right" in loc de transform,
+               ca sa nu mai creeze scroll orizontal pe mobil */
             .nav-links {
                 position: fixed;
-                inset: 0 0 0 auto;
+                top: 0;
+                right: -100%;
+                left: auto;
                 width: min(80vw, 340px);
                 height: 100vh;
                 background: var(--bg);
@@ -416,13 +370,12 @@
                 justify-content: center;
                 gap: var(--sp-3);
                 padding: 0 var(--sp-4);
-                transform: translateX(100%);
-                transition: transform 0.5s var(--ease);
+                transition: right 0.5s var(--ease);
                 border-left: 1px solid var(--border);
                 box-shadow: -8px 0 30px rgba(0, 0, 0, 0.05);
             }
             .nav.is-open .nav-links {
-                transform: translateX(0);
+                right: 0;
             }
             .nav-links a:not(.btn) {
                 font-size: var(--fs-base);
@@ -473,6 +426,7 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s var(--ease) 0.2s forwards;
+            min-width: 0;
         }
         .hero-copy .eyebrow {
             margin-bottom: 1.2rem;
@@ -564,9 +518,15 @@
         }
 
         @media (max-width: 900px) {
+            .hero {
+                padding: 7rem 0 3.5rem;
+            }
             .hero .container {
                 grid-template-columns: 1fr;
                 text-align: left;
+            }
+            .hero-title {
+                font-size: clamp(2.6rem, 11vw, 4rem);
             }
             .hero-visual {
                 order: -1;
@@ -586,6 +546,11 @@
         }
         .section--alt {
             background: var(--bg2);
+        }
+        @media (max-width: 860px) {
+            .section {
+                padding: 4rem 0;
+            }
         }
 
         .about-grid {
@@ -758,6 +723,7 @@
             border: 1px solid var(--border);
             aspect-ratio: 4/3;
             min-height: 340px;
+            width: 100%;
         }
         .location-map iframe {
             width: 100%;
@@ -775,6 +741,7 @@
             display: flex;
             gap: 1rem;
             align-items: flex-start;
+            min-width: 0;
         }
         .info-item .icon-circle {
             width: 42px;
@@ -806,6 +773,8 @@
             color: var(--text);
             font-size: var(--fs-md);
             font-weight: 500;
+            min-width: 0;
+            word-break: break-word;
         }
         .info-item a {
             color: var(--text);
@@ -845,6 +814,14 @@
         @media (max-width: 860px) {
             .location-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+        /* FIX: harta nu se mai incadreaza fortat cu min-height mare pe telefon */
+        @media (max-width: 600px) {
+            .location-map {
+                aspect-ratio: 1 / 1;
+                min-height: 0;
+                height: 300px;
             }
         }
 
@@ -943,7 +920,7 @@
                         <a href="#locatie" class="btn btn-outline">Cum ajungi</a>
                     </div>
                 </div>
-               
+
             </div>
             <div class="hero-scroll">
                 <svg viewBox="0 0 16 22" aria-hidden="true"><path d="M3 3 L8 10 L13 3" fill="none" stroke="#8C8C8C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -977,7 +954,6 @@
             <p>Micul dejun inclus, Wi-Fi rapid, parcare privată și multe alte atenții care fac diferența.</p>
         </div>
         <div class="facilities-grid reveal">
-            <!-- Mic dejun artizanal -->
             <div class="facility-item">
                 <div class="facility-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -991,7 +967,6 @@
                 <p>Produse locale, pâine de casă, cafea de specialitate</p>
             </div>
 
-            <!-- Grădină & terasă -->
             <div class="facility-item">
                 <div class="facility-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1003,7 +978,6 @@
                 <p>Șezlonguri, hamace, foișor și grătar</p>
             </div>
 
-            <!-- Parcare privată -->
             <div class="facility-item">
                 <div class="facility-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1017,7 +991,6 @@
                 <p>Parcare gratuită, supravegheată video</p>
             </div>
 
-            <!-- Wi-Fi rapid -->
             <div class="facility-item">
                 <div class="facility-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1030,7 +1003,6 @@
                 <p>Internet de mare viteză în toată pensiunea</p>
             </div>
 
-            <!-- Saună & relaxare -->
             <div class="facility-item">
                 <div class="facility-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1044,7 +1016,6 @@
                 <p>Saună uscată și zonă de lounge la interior</p>
             </div>
 
-            <!-- Biciclete gratis -->
             <div class="facility-item">
                 <div class="facility-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1059,7 +1030,6 @@
                 <p>Explorează împrejurimile pe două roți</p>
             </div>
 
-            <!-- Pet friendly -->
             <div class="facility-item">
                 <div class="facility-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1071,7 +1041,6 @@
                 <p>Acceptăm animale de companie mici, cu bucurie</p>
             </div>
 
-            <!-- Recepție 24/7 -->
             <div class="facility-item">
                 <div class="facility-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
